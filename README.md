@@ -6,3 +6,7 @@ This is my Master Thesis working repository.
 - I use BERT, a general purpose NLP network developed by google, to predict the sentiment of news articles related to these stocks and trying to find correlations with their returns
 
 Next steps are using conditional Generative Adversarial Networks (cGANs) to combine BERT's sentiment analysis with quantitative techniques to give more accurate predictions. 
+
+> Here you can see the model price predictions for Bitcoin based only on newspaper data
+
+![Bitcoin](https://github.com/juanluisrto/stock-prediction-nlp/blob/master/pngs/predictions_bitcoin.png)

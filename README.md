@@ -7,6 +7,8 @@ This is my Master Thesis working repository.
 
 Next steps are using conditional Generative Adversarial Networks (cGANs) to combine BERT's sentiment analysis with quantitative techniques to give more accurate predictions. 
 
-> Here you can see the model price predictions for Bitcoin based only on newspaper data
+> Here you can see the model price predictions for Bitcoin and Tesla based solely on newspaper text
 
 ![Bitcoin](https://github.com/juanluisrto/stock-prediction-nlp/blob/master/pngs/predictions_bitcoin.png)
+
+![Bitcoin](https://github.com/juanluisrto/stock-prediction-nlp/blob/master/pngs/predictions_tesla.png)

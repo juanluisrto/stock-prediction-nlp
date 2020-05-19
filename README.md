@@ -1,6 +1,9 @@
 # stock-prediction-nlp
+This repository contains code written for the master thesis titled: "Predicting the stock market with GANs and sentiment analysis of newspaper text".
+> **Author**: Juan Luis Ruiz-Tagle
 
-This is my Master Thesis working repository.
+> **Director**: Emilio Serrano
+
 - I am researching on the capabilities that NLP models have on predicting stock market returns.
 - I have chosen Tesla and Bitcoin (not a stock, but does the job), since they are highly volatile and prone to change due to sudden hypes
 - I use BERT, a general purpose NLP network developed by google, to predict the sentiment of news articles related to these stocks and trying to find correlations with their returns

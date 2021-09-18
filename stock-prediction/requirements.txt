@@ -1,0 +1,12 @@
+tensorflow
+tensorflow_hub
+bert-for-tf2
+#pytorch
+numpy
+pandas
+matplotlib
+nltk
+yfinance
+news-please
+google
+scikit-learn

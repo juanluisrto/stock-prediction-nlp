@@ -1,0 +1,214 @@
+What are some of the steps for data wrangling and data cleaning before applying machine learning algorithms?@"
+- Checking integrity:  removing duplicates, type conversion, variables make sense
+- Data visualization
+- Standardization or normalization
+- Handling null values (inputting mean/median/mode)
+- Dealing with outliers
+- Data transformations (onehotencoding, log-transformation)
+
+
+END"
+How to deal with unbalanced binary classification?@"
+- Use metrics like F1 score instead of Accuracy
+- increasing the cost of misclassifying the minority class
+- improve the balance of classes by oversampling the minority class or by undersampling the majority class
+
+END"
+What is the difference between a box plot and a histogram?@"
+- Histograms are bar charts that show the frequency of a numerical variable’s values and are used to approximate the probability distribution of the given variable.
+- Boxplots communicate different aspects of the distribution of data. You can gather information like the quartiles, the range, and outliers. [outilers < q1 - 1.5*IQR, min value, q1, median, q3, max value, outliers > q3 + 1.5*IQR
+
+END"
+Describe different regularization methods, such as L1 and L2 regularization@"
+Regularization adds a penalty to the loss function as the model complexity increases to avoid overfitting.
+- L1 (lasso): adds “absolute value of magnitude” of coefficient as penalty term.
+- L2 (Ridge): adds “squared magnitude” of coefficient as penalty term.
+- Elastic net (combination)
+The key difference between these techniques is that Lasso shrinks the less important feature’s coefficient to zero thus, removing some feature altogether. So, this works well for feature selection in case we have a huge number of features.
+
+
+END"
+What is bias, variance trade off ?@"
+Bias: “Bias is error introduced in your model due to over simplification of machine learning algorithm.” It can lead to under fitting.
+Variance: “Variance is error introduced in your model due to complex machine learning algorithm, your model learns noise also from the training data set and performs bad on test data set.”  It can lead high sensitivity and over fitting.
+* Low bias machine high variance learning algorithms — Decision Trees, k-NN and SVM
+* High bias machine low variance learning algorithms — Linear Regression, Logistic Regression
+
+END"
+What is a p-value?@"
+The P value is the probability of finding the observed, or more extreme, results when the null hypothesis (H0) of a study question is true.
+If this probability is below a certain level (alpha) we consider it to be statistically significant and will reject H0
+* State the null hypothesis and the alternative hypothesis
+* Determine the value of alpha to be used
+* Find the Z-score / t-score associated with your alpha level
+* Find the test statistic using this formula
+* If the value of test statistic is less than the Z-score of alpha level (or p-value is less than alpha value), reject the null hypothesis. 
+
+END"
+What are Type I and Type II errors@"
+- Type I error:  is the rejection of a true null hypothesis (also known as a ""false positive"" finding or conclusion; example: ""an innocent person is convicted"")
+- Type II error: is the non-rejection of a false null hypothesis (also known as a ""false negative"" finding or conclusion; example: ""a guilty person is not convicted"").
+
+END"
+What is Standard error:  @"
+Standard error of the mean (SEM) measures how far the sample mean of the data is likely to be from the true population mean. 
+
+END"
+State Bayes theorem.@"
+P(A|B) = P(B|A) x P(A) / P(B)
+posterior = likelihood x prior / evidence
+
+END"
+What is Maximum Likelihood estimation (MLE)?@"
+MLE  is a technique used for estimating the parameters of a given distribution given observations, by finding the parameter values that maximize the likelihood of making the observations given the parameters.
+Recall Bayes theorem
+P(β∣y) = P(y∣β) x P(β) / P(y). (posterior = likelihood x prior / evidence)
+We can effectively ignore the prior and the evidence because all coefficient values are equally likely. And probability of all data values (assume continuous) are equally likely, and basically zero.
+he goal of MLE is to maximize the likelihood function:
+L(β|y1,y2,…,yn) = p(y1|β)p(y2|β),…,p(yn|β) = ∏p(yi|β)
+
+We have to maximise β  in max( ∏p(yi|β)). If we take the log, we can solve faster the optimisation problem.
+max( ∑ ln(p(yi|β)))
+
+END"
+What is Expectation Maximization?@"
+The expectation-maximization (EM) algorithm is a way to find maximum-likelihood estimates for model parameters when your data is incomplete, has missing data points, or has unobserved (hidden) latent variables. It is an iterative way to approximate the maximum likelihood function. While maximum likelihood estimation can find the “best-fit” model for a set of data, it doesn’t work particularly well for incomplete data sets. The more complex EM algorithm can find model parameters even if you have missing data. It works by choosing random values for the missing data points and using those guesses to estimate a second set of data. The new values are used to create a better guess for the first set, and the process continues until the algorithm converges on a fixed point.
+
+
+END"
+What is dimensionality reduction?@"
+It is the process of reducing the number of random variables under consideration.
+It can be done in two different ways:
+- Feature selection: only keeping the most relevant variables from the original dataset .
+- Feature extraction: finding a smaller set of new variables, each being a combination of the input variables
+
+END"
+ How can you achieve dimensionality reduction?@"
+Feature Selection
+- Simple techniques : missing value ratio filter, Low Variance Filter, High Correlation filter. 
+- Random forest feature importance: Train a random forest and plot the feature importance graph 
+- Backward Feature Elimination:(Wrapper method) train model with all n variables, train (n -1) models dropping one var at a time. Check which model performed better and spare it. Keep removing variables as necessary.
+- Forward Feature Selection:(Wrapper method) Opposite to BFE.  Train n models with 1 variable and keep adding to the one that performs better.
+Feature extraction
+- Common factor analysis:  groups together into factors variables correlated with each other, extracting the common variance.
+- PCA: transforms the data into a new set of orthogonal components, ensuring that the first component aligns to the maximum variance in the dataset
+- SVD: Singular Value Decomposition.  Method that decomposes an arbitrary matrix 𝐴 with 𝑚 rows and 𝑛 columns A  (n x m)  = U (mxm) * S (nxm) * V (nxn). U = AtA, V = AAt. U and V share eigenvalues. S has singular values which are the square roots of the eigenvalues. By only selecting the top 𝑘 singular values, we have compressed the original information and represented it using fewer features.
+
+END"
+How are SVD and PCA related?@"
+The singular values (Σ) of a 0-centered matrix X (n samples × m features), equal the square root of its eigenvalues (Λ), making it possible to compute PCA using SVD, which is often more efficient since not all the covariances have to be computed. Only the top k
+ 
+
+END"
+How are LDA and PCA related?@"
+Both Linear Discriminant Analysis (LDA) and Principal Component Analysis (PCA) are linear transformation techniques that are commonly used for dimensionality reduction. PCA can be described as an “unsupervised” algorithm, since it “ignores” class labels and its goal is to find the directions (the so-called principal components) that maximize the variance in a dataset. In contrast to PCA, LDA is “supervised” and computes the directions (“linear discriminants”) that will represent the axes that that maximize the separation between multiple classes.
+
+END"
+What is Gradient Descent? What types of GD are there?@"
+Gradient descent is an optimization algorithm used to minimize some function by iteratively moving in the direction of steepest descent as defined by the negative of the gradient
+There are three types of Gradient Descent Algorithms:
+1. Batch Gradient Descent: We take the average of the gradients of all the training examples and then use that mean gradient to update our parameters. So that’s just one step of gradient descent in one epoch.
+2. Stochastic Gradient Descent: we consider just one example at a time to take a single step.
+3. Mini-Batch Gradient Descent: we compute the gradient of a small number of examples at a time, and average it to take the next step.
+
+END"
+How to deal with outliers?@"
+Outliers can be real instances or due to bad measurements/computational errors.
+- Sanity check: confirm that the measurements are possible.  Height < 2.1 meters.
+- Caping values: setting all extreme values at a maximum. Ex. Income > 10000 = 10000
+- Boxplot Approach (Univariate method): outilers < q1 - 1.5*IQR or > q3 + 1.5*IQR. Does not work well for multi-dimensional data since different dimensions might not agree in categorising outliers
+- Multivariate method: building a predictive model using all the data available and cleaning those instances with errors above a given value.
+- Use Minkowski error: used in regression. It reduces the impact of outliers on the trained model. Substitute ^2 on RSME by a smaller value (1.5)
+
+END"
+Can you explain the difference between a Validation Set and a Test Set?@"
+A Validation set can be considered as a part of the training set as it is used for parameter selection and to avoid overfitting of the model being built. On the other hand, a Test Set is used for testing or evaluating the performance of a trained machine learning model.
+
+END"
+What is multicollinearity and how do you check if it is present?@"
+- We say there exists multicollinearity among independent variables in a regression model when they are highly correlated with each other. This inflates artificially the explained variance of the model.
+- We can check if it is present by computing the Variance Inflation Factor (VIF) for each independent variable. VIFi = 1/(1-Ri^2) where Ri^2 is computed by regressing the ith independent variable on the remaining ones.
+- Levels:
+    * 1 = not correlated.
+    * Between 1 and 5 = moderately correlated.
+    * Greater than 5 = highly correlated.
+
+
+
+
+END"
+Explain Linear Regression@"
+paper
+Linear regression predicts a target variable given a set of other independent variables. This is done by finding a linear relationship between target and features, that is, in which proportions do the features impact the target variable. Fortunately, we can compute it directly using a formula derived from differential calculus. Lets X be the matrix with our dataset, that is with as many rows as points it contains and as many columns as features each point has. Let Y be a matrix with the target variable (1 column and an entry for each point). Then, this set of parameters P is computed as follows:
+
+In simple terms, linear regression is a method of finding the best straight line fitting to the given data, i.e. finding the best linear relationship between the independent and dependent variables.
+In technical terms, linear regression is a machine learning algorithm that finds the best linear-fit relationship on any given data, between independent and dependent variables. This task is accomplished by finding the hyperplane which passes closest to all the points so that the sum of the squared distances between each point and the hyperplane is as small as possible. (Sum of Squared Residuals Method). We find the coefficients which define the hyperplane using linear algebra transformations. β=(X^T*X)^-1*X^T*Y where Y=β^T*X is the model for the linear regression	
+
+Assumptions:
+* Linear relationship: There exists a linear relationship between the independent variable, x, and the dependent variable, y. Checked with scatter plot. If dependence exists but it is not linear then apply transformation
+* Independence: The residuals are independent. There is no autocorrelation. Checked by Durbin-Watson test, which tests autocorrelation in residuals.
+* No Multicollinearity: independent variables are not highly correlated with each other. Checked with correlation matrix and tolerance. Variance inflation factor(VIF) 
+* Homoscedasticity: The residuals have constant variance at every level of x. Checked with fitted-value vs residual plot.  To fix we can redefine or transform the dependent variable
+* Normality: The residuals of the model are normally distributed. Checked with Q-Q plot (quantile) or tests like Kolmogorov-Smironov, Jarque-Bera. To fix we can check for outliers or apply transformations. 
+
+END"
+Explain Logistic Regression@"
+Logistic regression predicts categorical outcomes (binomial / multinomial values of y). The predictions of Logistic Regression (henceforth, LogR ) are in the form of probabilities of an event occurring, ie the probability of y=1, given certain values of input variables x. Thus, the results of LogR range between 0-1.
+
+LogR models the data points using the standard logistic function (sigmoid), given by f(x) = 1/(1 + e^(-(β0 + β1x1 … + βnxn))).
+The equation to be solved in LogR is: log(p/(1-p)) = β0 + β1x1 … + βnxn
+
+Assumptions
+* Observation independence:  observations to be independent of each other
+* No Multicollinearity: independent variables should not be too highly correlated with each other.
+* Linearity of independent variables and logodds: there is linear relationship between the log odds log(p/(1-p)) of the dependent variable and the independent variables 
+
+END"
+Explain K-Means@"
+K-Means is an unsupervised clustering algorithm, which allocates data points into groups based on similarity.
+1. Randomly create centroids (cluster centres) in the same vector space as the data
+2. Each data point is allocated to the nearest centroid. Define distance
+3. Centroids move to the location of the average of points in their cluster. 
+4. Repeat until convergence (no point changes cluster)
+
+END"
+Explain Gaussian Naïve Bayes@"
+At every data point, the z-score distance between that point and each class-mean is calculated, namely the distance from the class mean divided by the standard deviation of that class. The point gets classified with the class of the highest z-score
+Assumptions: each feature makes an, independent, equal contribution to the outcome.
+
+
+END"
+Explain Gaussian Mixture models@"
+Gaussian mixture models are a probabilistic model for representing normally distributed subpopulations within an overall population (many gaussians combined) . For example, if a distribution is multimodal.
+A Gaussian mixture model is parameterized by two types of values, the mixture component weights and the component means and variances/covariances.
+Expectation maximization for mixture models consists of two steps
+* The first step, known as the expectation step or E step, consists of calculating the expectation of the component assignments  for each data point given the model parameters (weight, mean, variance)
+* The second step is known as the maximization step or M step, which consists of maximizing the expectations calculated in the E step with respect to the model parameters. This step consists of updating the weights, means, variances.
+
+END"
+Explain Decision Trees@"
+Decision Trees are used to build classification and regression models in a supervised manner. A decision tree classifies data items by posing a series of questions about the features associated with the items. Each question is contained in a node, and every internal node points to one child node for each possible answer to its question. The questions thereby form a hierarchy, encoded as a tree. In the simplest form  we ask yes-or-no questions, and each internal node has a ‘yes’ child and a ‘no’ child. An item is sorted into a class by following the path from the topmost node, the root, to a node without children, a leaf, according to the answers that apply to the item under consideration. An item is assigned to the class that has been associated with the leaf it reaches.
+
+Decision trees are grown by adding question nodes incrementally which separate the data in homogeneous classes as much as possible. The two most common measures used to evaluate the degree of are entropy and the Gini index.
+Continuous values are discretised. Branches are pruned to avoid overfitting . Some common algorithms are C4.5 and ID3
+
+
+END"
+Explain Ensemble learning methods@"
+Ensemble models in machine learning combine the decisions from multiple models to improve the overall performance. Combinations of multiple models decreases variance.
+* Bagging : Bootstrap AGGregating. Bagging takes small random samples with replacement and fits a single learner with each sample. Then combines the predictions of all learners by averaging or taking the majority vote. 
+    * Random Forests (type of bagging alg): Takes bagging a step ahead to further reduce the variance by randomly choosing a subset of features as well for each sample to make the splits while training.
+* Boosting: It is an iterative technique which adjusts the weight of an observation based on the last classification. If an observation was classified incorrectly, it tries to increase the weight of this observation and vice versa. Trees are built sequentially, with information from previous models.
+    * AdaBoost:
+    * Gradient Boosting: 
+    * XGBoost: stands for eXtreme Gradient Boosting. XGBoost is a decision-tree-based ensemble Machine Learning algorithm that uses a highly optimised gradient boosting framework.
+
+END"
+What is the difference between AdaBoost and Gradient Boosting?@"
+They differ on how they create the weak learners during the iterative process.
+
+At each iteration, adaptive boosting changes the sample distribution by modifying the weights attached to each of the instances. It increases the weights of the wrongly predicted instances and decreases the ones of the correctly predicted instances. The weak learner thus focuses more on the difficult instances. After being trained, the weak learner is added to the strong one according to his performance (so-called alpha weight). The higher it performs, the more it contributes to the strong learner.
+
+On the other hand, gradient boosting doesn’t modify the sample distribution. Instead of training on a newly sample distribution, the weak learner trains on the remaining errors (so-called pseudo-residuals) of the strong learner. It is another way to give more importance to the difficult instances. At each iteration, the pseudo-residuals are computed and a weak learner is fitted to these pseudo-residuals. Then, the contribution of the weak learner (so-called multiplier) to the strong one isn’t computed according to his performance on the newly distribution sample but using a gradient descent optimization process. The computed contribution is the one minimizing the overall error of the strong learner.
+
+END"

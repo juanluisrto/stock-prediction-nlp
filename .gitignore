@@ -1,0 +1,5 @@
+models/
+features_labels/
+.ipynb_checkpoints/
+csv/
+.DS_Store

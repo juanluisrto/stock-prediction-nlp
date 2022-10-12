@@ -12,6 +12,6 @@ Next steps are using conditional Generative Adversarial Networks (cGANs) to comb
 
 > Here you can see the model price predictions for Bitcoin and Tesla based solely on newspaper text
 
-![Bitcoin](https://github.com/juanluisrto/stock-prediction-nlp/blob/master/pngs/predictions_bitcoin.png)
+![Bitcoin](https://github.com/juanluisrto/stock-prediction-nlp/blob/master/stock-prediction/etsfactory_article/pngs/predictions_bitcoin.png)
 
-![Bitcoin](https://github.com/juanluisrto/stock-prediction-nlp/blob/master/pngs/predictions_tesla.png)
+![Bitcoin](https://github.com/juanluisrto/stock-prediction-nlp/blob/master/stock-prediction/etsfactory_article/pngs/predictions_tesla.png)

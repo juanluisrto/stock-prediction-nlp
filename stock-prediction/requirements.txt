@@ -1,6 +1,6 @@
-tensorflow
-tensorflow_hub
-bert-for-tf2
+#tensorflow
+#tensorflow_hub
+#bert-for-tf2
 #pytorch
 numpy
 pandas
@@ -10,3 +10,8 @@ yfinance
 news-please
 google
 scikit-learn
+seaborn
+google-cloud-bigquery
+python-dotenv
+pyarrow
+jinja2

@@ -3,3 +3,4 @@ features_labels/
 .ipynb_checkpoints/
 csv/
 .DS_Store
+stock-prediction/__pycache__/
